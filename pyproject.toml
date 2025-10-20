@@ -2,20 +2,23 @@
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[dependency-groups]
+dev = [
+  "mypy>=1.18.2",
+  "pre-commit>=4.3.0",
+  "pytest>=8.4.2",
+  "python-dotenv>=1.1.1"
+]
+
 [project]
 name = "open-sandboxes"
-version = "0.1.0"
+version = "0.1.0-alpha"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "paramiko>=4.0.0",
-    "typing-extensions>=4.15.0",
-]
-
-[dependency-groups]
-dev = [
-    "python-dotenv>=1.1.1",
+  "paramiko>=4.0.0",
+  "typing-extensions>=4.15.0"
 ]
 
 [tool.hatch.build.targets.wheel]

@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 
 from open_sandboxes.models import PyprojectDependency
 
+
 @dataclass
 class PyprojectConfig:
     dependencies: list[PyprojectDependency]
@@ -12,18 +13,14 @@ class PyprojectConfig:
     def to_str(self) -> str:
         deps = ""
         for dependency in self.dependencies:
-            deps+=f"\t\"{dependency['name']}{dependency['version_constraints']}\",\n" 
+            deps += f'    "{dependency["name"]}{dependency["version_constraints"]}",\n'
         return f"""
 [project]
-name = {self.title}
+name = "{self.title}"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">={self.python_min_version},<{self.python_max_version}"
 dependencies = [
-    {deps}
+    {deps.strip("\n")}
 ]
 """
-
-
-
-        
