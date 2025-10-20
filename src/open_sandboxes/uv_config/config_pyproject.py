@@ -21,6 +21,6 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">={self.python_min_version},<{self.python_max_version}"
 dependencies = [
-    {deps.strip("\n")}
+    {deps.strip(",\n")}
 ]
 """
