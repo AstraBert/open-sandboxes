@@ -102,6 +102,11 @@ print("Code output:", res["output"])
 print("Captured stderr logs:", res["error"])
 ```
 
+You can configure `run_code` to:
+
+- Export specific environment variables (passing a dictionary under the `environment` parameter)
+- Enforce resource consumption limits to CPU, memory, number of processes and read/write rates.
+
 ## Contributing
 
 Contributions are always welcome! Please read the [contributing guide](./CONTRIBUTING.md) to get to know more about the contribution process.
