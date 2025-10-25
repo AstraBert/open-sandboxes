@@ -82,7 +82,8 @@ def test_sandbox_run_code() -> None:
 def _get_env_exports(environment: dict[str, Any]) -> str:
     exports = []
     for k, v in environment.items():
-        exports.append(f"export {k}='{v}'")
+        escaped_value = str(v).replace("'", "'\\''")
+        exports.append(f'export {k}="{escaped_value}"')
     return " && ".join(exports)
 
 
@@ -154,7 +155,7 @@ def test_sandbox_run_code_options(mock: MagicMock) -> None:
         write_rate="2mb",
     )
     assert (
-        "export OPENAI_API_KEY='test-key' && export PYTHONBUFFERED='1'"
+        'export OPENAI_API_KEY="test-key" && export PYTHONBUFFERED="1"'
         in result["output"]
     )
     assert (
