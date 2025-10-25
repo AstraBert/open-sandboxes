@@ -11,3 +11,6 @@ wheels/
 
 # env variables
 .env
+
+# caches
+*_cache/
