@@ -99,7 +99,8 @@ class Sandbox:
     def _get_env_exports(self, environment: dict[str, Any]) -> str:
         exports = []
         for k, v in environment.items():
-            exports.append(f"export {k}='{v}'")
+            escaped_value = str(v).replace("'", "'\\''")
+            exports.append(f'export {k}="{escaped_value}"')
         return " && ".join(exports)
 
     def run_code(
@@ -169,5 +170,8 @@ EOF
 cd /tmp/{self.name}/ && \
 uv run script.py
 '"""
+        print("COMMAND", command)
+        print()
+        print()
         result = self.remote_connection.execute_command(command, timeout=timeout)
         return {"output": result["stdout"], "error": result["stderr"]}
