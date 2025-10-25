@@ -32,7 +32,7 @@ class PyprojectConfig:
         deps = ""
         for dependency in self.dependencies:
             deps += f'    "{dependency["name"]}{dependency["version_constraints"]}",\n'
-            deps = deps.strip(",\n")
+        deps = deps.strip(",\n")
         return f"""
 [project]
 name = "{self.title}"
