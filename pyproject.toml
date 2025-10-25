@@ -12,7 +12,7 @@ dev = [
 
 [project]
 name = "open-sandboxes"
-version = "0.2.0-alpha"
+version = "0.2.1-alpha"
 description = "Open-source, python-native and self-hosted-first alternative implementation of Cloudflare Sandbox SDK"
 readme = "README.md"
 requires-python = ">=3.10,<4"
